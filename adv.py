@@ -14,8 +14,8 @@ world = World()
 # map_file = "maps/test_line.txt"
 # map_file = "maps/test_cross.txt"
 # map_file = "maps/test_loop.txt"
-map_file = "maps/test_loop_fork.txt"
-# map_file = "maps/main_maze.txt"
+# map_file = "maps/test_loop_fork.txt"
+map_file = "maps/main_maze.txt"
 
 # Loads the map into a dictionary
 room_graph=literal_eval(open(map_file, "r").read())
@@ -35,6 +35,10 @@ traversal_path = []
 # Main dictionary containing all rooms, with exits labeled with ? or connecting room id
 
 visited = {}
+
+###############
+# Main Function
+###############
 
 def travese_map(): 
     # Focus on current player room:
@@ -108,9 +112,13 @@ def travese_map():
                     traversal_path.append(i)
 
     # print("END", visited)
-    # print("END PATH", traversal_path)        
-    
-  
+    # print("END PATH", traversal_path)     
+       
+
+####################################
+# Reverse random direction function
+####################################
+
 # Reverse the direction that is passed in, return the reversed direction
 def reverse_direction(direction):
     if direction == "n":
@@ -122,6 +130,10 @@ def reverse_direction(direction):
     elif direction == 'w':
         return 'e'
 
+
+####################################
+# Custom BFS to find room with "?"
+####################################
 
 # Custom BFS function used to find a room with unvisited exits("?")
 def custom_bfs(visited, current_room):
