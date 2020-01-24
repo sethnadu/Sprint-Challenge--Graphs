@@ -32,6 +32,17 @@ traversal_path = []
 
 # ===================== Solution Code ==========================
 
+'''
+ One function that checks if current room is in visited. If that room has unvisited exits, it
+randomly picks one of the unvisted exits(direction) and moves that way. It then adds the next room to
+visited if it was not in visited, then adds corresponding (reverse random direction with reverse_direction 
+function) room ids to the current and next rooms. If there are no unvisited exits, it runs the custom bfs
+function. This goes through each room till it finds an unvisited exit, recorded all the ids of the rooms it
+moves through. Each id is then connected with the direction of the id before it, in order to get the direction
+it took to move to each room. Each one of the directions are then sent to the player.travel() to move the player.
+Then all the directions moved are returned, which are added to the traversal_path.
+'''
+
 # Main dictionary containing all rooms, with exits labeled with ? or connecting room id
 
 visited = {}
